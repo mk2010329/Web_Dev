@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Basket</title>
+    <link rel="stylesheet" href="/styles/purchase.css">
+</head>
+<body>
+    <header>Company Name
+        <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'London')">My Profile</button>
+                <button>Home</button>
+            </div>
+        <div id="London" class="tabcontent">
+           <a href="home.html"><button> My Account</button></a> <br>
+            <button>Sign out</button>
+          </div>
+ 
+    </header>
+    <nav>Your Basket</nav>
+    <p>Your Wallet:</p>
+    <section>Need to add here</section>
+    <aside>Order Summary</aside>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks, isCalledOnce =false;
+
+          if(isCalledOnce==false){
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            isCalledOnce=true;
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        else{
+          location.reload();
+        }
+        }
+        </script>
+    
+</body>
+</html>
