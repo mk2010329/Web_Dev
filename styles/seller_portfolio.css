@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 90%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+header {
+    background-size: cover;
+    background-color: #87EDC2;
+    height: 30vh;
+    border-radius: 2ch;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav {
+
+    background-color: rgb(227, 227, 227);
+    border-radius: 2ch;
+    margin-top: 1em;
+
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: start;
+        
+        li {
+            padding: 2rem;
+        }
+
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+main {
+    background-color: #87EDC2;
+    border-radius: 2ch;
+    margin-top: 1em;
+}
