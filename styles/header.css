@@ -1,0 +1,45 @@
+header {
+    border: 2px solid aqua;
+    font-size: 30px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: aquamarine;
+
+    tab {
+
+        #dropdown-items {
+                display: none;
+                font-size: small;
+            }
+        #menu-items:hover #dropdown-items {
+                display: block;
+            }
+        display: flex;
+        justify-content: space-between;
+        ul {
+           display: flex; 
+
+        /* li:not(:last-child)::after {
+                content: "|";
+                padding-left: 0.2rem;
+            } */
+        li {
+
+            
+            list-style: none;
+            padding: 0.2rem;
+            a {
+                text-decoration: none;
+                font-size: large;
+                color: black;
+            }
+
+            a:hover {
+                background-color: aqua;
+
+            }
+        }
+        }
+    
+    }
+}

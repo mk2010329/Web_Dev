@@ -1,62 +1,83 @@
-*{
-   padding:10px;
-  display: flexbox;;
+* {
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-header{
-    padding: 20px;
-    border: 2px solid aqua;
-    margin-bottom: 0.5em;
-    font-size: 40px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    background-color: aquamarine;
- 
+body {
+    width: 90%;
+    margin: auto;
 }
 
-.tab{
-    background-color: inherit;
-    float:right;
-}
-
-.tab button, .tabcontent button{
-    background-color: inherit;
-    padding: 4px 10px;
-    font-size: 17px;
-    border: none;
-    float: right;
-
-}
-.tab button:hover ,.tabcontent button:hover {
-    background-color:aqua;
-}
-
-
-.tabcontent {
-    display: none;
-    padding: 4px 10px;
-  }
 
 nav{  
     font-size: 30px;
     margin-bottom: 0.5em;
 }
 
+main{
+    display: flex;
+    justify-content: space-between;
+    section{
+        border: 2px solid palevioletred;
+        margin-bottom: 0.5em;
+        float: inline-start;
+        padding: 150px;
+    }
+    
+    aside{
+        border: 2px solid purple;
+        float: inline-end;
+        padding: 20px;
+        height: 300px;
+        width: 200px;
+        font-size: 20px;
+        text-align: center;
+        border-top-left-radius: 20px;
+        
+    }
+    
 
-section{
-    border: 2px solid palevioletred;
-    margin-bottom: 0.5em;
-    float: inline-start;
-    padding: 150px;
 }
 
-aside{
-    border: 2px solid purple;
-    float: inline-end;
-    padding: 20px;
-    height: 300px;
-    width: 200px;
-    font-size: 20px;
-    text-align: center;
-    border-top-left-radius: 20px;
+
+
+
+@media (min-width:500px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu ul {
+            display: flex;
+
+            li:not(:last-child)::after {
+                content: "|";
+                padding-left: 0.2rem;
+            }
+        }
+    }
+
+    main {
+        .headline {
+            display: flex;
+            align-items: center;
+        }
+
+        .abroad-images {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            gap: 0.2rem;
+
+            img {
+                width: 20rem;
+                flex: 1;
+            }
+        }
+    }
 }

@@ -5,17 +5,15 @@
 }
 
 body {
-    width: 90%;
+    
     margin: auto;
-    margin-top: 1em;
 }
 
 header {
     background-size: cover;
-    background-color: #87EDC2;
+    background-color: #020617;
     height: 30vh;
-    border-radius: 2ch;
-    
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
