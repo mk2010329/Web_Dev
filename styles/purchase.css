@@ -1,18 +1,17 @@
 * {
-    padding: 5px;
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 body {
-    width: 90%;
-    margin: auto;
+   
+
 }
-
-
 nav{  
     font-size: 30px;
     margin-bottom: 0.5em;
+    color: white;
 }
 
 main{

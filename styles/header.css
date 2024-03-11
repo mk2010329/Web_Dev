@@ -1,9 +1,8 @@
 header {
-    border: 2px solid aqua;
     font-size: 30px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    background-color: aquamarine;
+    
+    background-color: #1E293B;
+    color: white;
 
     tab {
 
@@ -43,3 +42,4 @@ header {
     
     }
 }
+
