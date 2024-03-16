@@ -1,0 +1,26 @@
+
+
+
+/* this code is for the root color in different scheme */
+@media screen and (prefers-color-scheme: light) {
+    :root {
+      --light-color:#f6f6f6;
+      --dark-color:#2f2f2f;
+      --img-back-color:#dcdcdc;
+      --headbar-buttan:#f36f2d;
+      --headbar-flex:#bdbdbd;
+    }
+  }
+   
+  @media screen and (prefers-color-scheme: dark) {
+    :root {
+      --light-color:#2f2f2f;
+      --dark-color:#f6f6f6;
+      --img-back-color:#525252;
+      --headbar-buttan:#e34a13;
+      --headbar-flex:#7c7c7c;
+    }
+    /* footer #icons img{
+      filter: invert();
+    } */
+  }

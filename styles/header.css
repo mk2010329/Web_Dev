@@ -1,45 +1,49 @@
-header {
-    font-size: 30px;
-    /* hello */
-    background-color: #1E293B;
-    color: white;
+@import url(rootcolor.css);
 
-    tab {
 
-        #dropdown-items {
-                display: none;
-                font-size: small;
-            }
-        #menu-items:hover #dropdown-items {
-                display: block;
-            }
-        display: flex;
-        justify-content: space-between;
-        ul {
-           display: flex; 
-
-        /* li:not(:last-child)::after {
-                content: "|";
-                padding-left: 0.2rem;
-            } */
-        li {
-
-            
-            list-style: none;
-            padding: 0.2rem;
-            a {
-                text-decoration: none;
-                font-size: large;
-                color: black;
-            }
-
-            a:hover {
-                background-color: aqua;
-
-            }
-        }
-        }
-    
-    }
+#headbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 10px 20px;
+    margin: -10px -10px;
 }
+
+
+#ulbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right:20px ; 
+}
+
+#ulbar li{
+    list-style: none;
+    padding: 0px 15px;
+}
+
+#ulbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    transition: 0.4s ease;
+}
+
+#headbar a{
+    text-decoration: none;
+    color: white;
+}
+
+#ulbar li a:hover{
+    color: rgb(94, 229, 119);
+}
+
+
+
+
+
+
+
 
