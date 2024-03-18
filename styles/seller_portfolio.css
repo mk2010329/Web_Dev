@@ -1,7 +1,13 @@
+@font-face {
+    font-family: metro;
+    src: url(Metropolis-Regular.ttf);
+ } 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: metro;
 }
 
 body {
@@ -11,9 +17,9 @@ body {
 
 header {
     background-size: cover;
-    background-color: #020617;
+    /* background-color: #020617; */
     height: 30vh;
-    color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +47,70 @@ header {
 }
 
 main {
-    background-color: #87EDC2;
+    /* background-color: #87EDC2; */
     border-radius: 2ch;
     margin-top: 1em;
+    margin: 1em;
+
+    h1 { padding: 1em;}
+
+}
+
+.popup-sell-div {
+    border: 2px solid rgb(227, 227, 227);
+    border-radius: 2ch;
+    padding: 1em;
+    /* margin: 1em; */
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        background-color: rgb(103, 230, 255);
+        border-radius: 3ch;
+        width: 5em;
+
+        text-align: center;
+        line-height: 40px;
+    }
+
+    div {
+        width: 10em;
+    }
+}
+.w3-bar .w3-bar-item{
+    padding:8px 16px;float:left;width:auto;display:block;outline:0;background-color: white;
+}
+.w3-bar {
+    /* position:static;float:left; */
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+}
+.w3-bar .w3-button{
+    white-space:normal;
+}
+.w3-button:hover{color:#000!important;background-color:#ccc!important;}
+.w3-container,.w3-panel{
+    padding:0.01em 16px;
+}.w3-panel{
+    margin-top:16px;margin-bottom:16px
+}
+.w3-container:after,.w3-container:before{content:"";display:table;clear:both}
+
+.items-grid {
+
+    article {
+        display: flex;
+        justify-content: center;
+    }
+
+    article img{
+        width: 10em;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 30fr));
 }
