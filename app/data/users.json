@@ -1,0 +1,20 @@
+[
+    {
+        "username" : 1,
+        "password" : 1,
+        "bankAccount" : {
+            "amount" : 100,
+            "saleHistory" : []
+        }
+
+    },
+    {
+        "username" : 2,
+        "password" : 2,
+        "bankAccount" : {
+            "amount" : 200,
+            "saleHistory" : []
+        }
+
+    }
+]
