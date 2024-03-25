@@ -1,19 +1,24 @@
+@font-face {
+    font-family: metro;
+    src: url(Metropolis-Regular.ttf);
+ } 
 
 .nav{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 /* search bar*/
 .search {
-  
     position: relative;
-    width: 85%;
+    width: 50%;
     padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
   }
   
   .search input[type="text"] {
-    width: 88%;
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 20px;
@@ -28,9 +33,6 @@
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 0;
-    right: 0;
     transition: .9s ease;
   }
   
@@ -434,3 +436,44 @@ hr {
   fill: #333333
 }
 
+.categories{
+    height: 50%;
+    margin: 20px;
+    display: flex;
+     padding: 5px;
+}
+
+
+.computer{
+    height: 100%;
+    width: 33%;
+
+}
+.mobile{
+    
+    height: 100%;
+    width: 33%;
+}
+
+.accessories{
+    height: 100%;
+    width: 33%;
+}
+.pic{
+    height: 70%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.title{
+    display: none;
+    font-size: x-large;
+    font-family: metro;
+}
+.pic:hover{
+    cursor: pointer;
+    .title{
+        display: block;
+    }
+}
