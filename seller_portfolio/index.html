@@ -6,12 +6,11 @@
     <title>Seller's Portfolio</title>
     <link rel="stylesheet" href="/styles/seller_portfolio.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="../scripts/header_footer.js"></script>
 </head>
 <body>
 
-    <header>
-        <h1>Hi NAME&#x1F44B;</h1>
-    </header>
+    <header id="header"></header>
 
     <!-- <nav class="header-nav">
         <ul>
@@ -19,8 +18,11 @@
             <li><a href="">Account</a></li>
         </ul>
     </nav> -->
-
+    <div class="below-header-div">
+        <h1>Hi NAME&#x1F44B;</h1>
+    </div>
     <main>
+        
         <div class="popup-sell-div">
             <div>
                 <h2>Sell an Item</h2>
@@ -81,7 +83,7 @@
     </main>
     
 
-    <iframe src="../footer.html" frameborder="0" width="100%" scrolling="no" onload="resizeIframe(this)" ></iframe>
+    <footer id="footer"></footer>
     <script src="../scripts/swiper_seller_portfolio.js"></script>
 </body>
 </html>

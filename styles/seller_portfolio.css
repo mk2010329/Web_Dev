@@ -15,7 +15,7 @@ body {
     margin: auto;
 }
 
-header {
+.below-header-div {
     background-size: cover;
     /* background-color: #020617; */
     height: 30vh;
