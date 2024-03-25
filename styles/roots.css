@@ -22,4 +22,13 @@
       width: 40px;
       margin-top: 20px;
     }
+
+    .ulbar li a img {
+      filter: invert();
+    }
+  }
+
+
+  @media screen and (prefers-color-scheme: dark) {
+    
   }
