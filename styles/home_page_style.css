@@ -8,7 +8,7 @@
     margin: 0;
     height: 100vh;  
     box-sizing: border-box;
-}
+    }
 
 .nav{
   display: flex;
@@ -467,26 +467,35 @@ hr {
     height: 100%;
     width: 33%;
 }
-
 .accessories{
     display: flex;
     flex-direction:row;
     justify-content: center;
     height: 100%;
     width: 33%;
+    img{
+      border-radius: 2ch;
+    }
 }
 .pic{
     height: 70%;
+    transition-delay: height 2s;
 }
 
-.title{
+.comp-title,.mob-title,.acc-title{
     font-size: x-large;
     font-family: metro;
     display: none;
+    img{
+      height: 15em;
+    }
 }
-.pic:hover{
+.comp-pic:hover , .mob-pic:hover , .acc-pic:hover{
     cursor: pointer;
-    .title{
+    img{
+      height: 15em;
+    }
+    .comp-title,.mob-title , .acc-title{
         display: block;
         display: flex;
         flex-direction:row;
@@ -500,8 +509,8 @@ hr {
     margin: 40px auto;
     text-align: center;
     .hr-text {
-        font-weight: bolder;
-       font-family: metro; 
+      font-weight: bolder;
+      font-family: metro; 
       font-size: xx-large;
       position: relative;
       border: 0;
@@ -524,10 +533,71 @@ hr {
         padding: 0 .5em;
         line-height: 1.5em;
         color: black;
-        background-color: white;
-      }
+       background-color: white; }
      }
 }
+
+
+.item-list {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  width: 99%;
+  margin: 10px;
+
+  .item-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      text-align: center;
+      margin: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      img {
+          width: 100%;
+          height: 50%;
+          flex: 1;
+      }
+
+      p {
+          width: 100%;
+          text-align: justify;
+      }
+  }
+
+  .card:hover {
+      box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+  }
+}
+
+.add-btn {
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  width: 100%;
+}
+
+
+.add-btn {
+  background-color: #4CAF50;
+}
+
+.add-btn:hover {
+  background-color: #327435;
+}
+
+
+
 
 
 

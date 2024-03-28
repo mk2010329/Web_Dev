@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/styles/home_page_style.css" />
-    <script src="scripts/header_footer.js"></script>
   </head>
   <body>
+    <script src="scripts/header_footer.js"></script>
     <header id="header"></header>
 
     <br /><br />
@@ -39,7 +39,11 @@
     </div>
     <br /><br />
 
-    <div class="main">
+
+   <div class="item-list" id="item-list"></div>
+
+
+    <div class="main" id="main">
       <div class="slider">
         <div class="slides">
           <input type="radio" name="radioBtn" id="radio1" />
@@ -77,43 +81,33 @@
     <br /><br />
 
 
-    <div class="heading">
+    <div class="heading" id="heading-id">
       <hr class="hr-text" data-content="Categories">
     </div>
     
     
    <div class="categories">
       <div class="computer">
-        <div class="pic">
+        <div class="comp-pic" id="comp-pic">
           <img src="/images/laptop_logo.png" alt="">
-          <p class="title"><b> Computers</b></p>
+          <p class="comp-title"><b> Computers</b></p>
         </div>
       </div>
       <div class="mobile">
-        <div class="pic">
+        <div class="mob-pic" id="mob-pic">
           <img src="/images/mobile_icon.jpg" alt="">
-          <p class="title"><b>Mobile Phones</b></p>
+          <p class="mob-title"><b>Mobile Phones</b></p>
         </div>
        
       </div>
       <div class="accessories">
-        <div class="pic">
-          <img src="/images/accessory_icon.jpg" alt="">
-          <p class="title"><b>Accessories</b></p>
+        <div class="acc-pic" id="acc-pic">
+          <img src="images/download.jpg" alt="">
+          <p class="acc-title"><b>Accessories</b></p>
         </div>
       </div>
    </div>
-
-
-
-
-
-
-
-
-
-
-
+   <script src="/scripts/home_page.js"></script>
     <script type="text/javascript">
       var counter = 1;
       setInterval(function () {
