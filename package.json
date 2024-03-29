@@ -1,0 +1,12 @@
+{
+  "name": "web_dev",
+  "version": "1.0.0",
+  "description": "For web dev project",
+  "main": "./swiper_seller_porfolio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "basil",
+  "license": "ISC",
+  "type": "module"
+}
