@@ -1,5 +1,7 @@
 
 let cartItems = []
+const order = document.querySelector('.order_summary')
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let cart = document.querySelector("#cart-id")
@@ -19,14 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function addToCart(item){
     return `
-    <div class ="item-card">
+    <div class ="item-card" id="id-${item.id}">
     <img class="item_img" src="${item.picture}">
     <div>
     <p><b>Title:</b> ${item.name} </p>
     <p><b>Price:</b> ${item.price} QAR </p>
     </div>
     <div>
-    <button  class="add-btn" ><span>&minus;</span></button>
+    <button  class="add-btn"  onclick="removeItem('${item.id}')"><span>&minus;</span></button>
     </div>
     </div>
 ` 
@@ -39,11 +41,13 @@ function payBtn(){
 }
 
 function removeItem(id) {
-    const book = document.getElementById(`id-${id}`)
-    book.remove()
-    bookList = localStorage.bookList
-    bookList = JSON.parse(localStorage.bookList)
-    const index = bookList.findIndex(book=> book._id==id)
-    bookList.splice(index,1);
-    localStorage.bookList = JSON.stringify(bookList)
+    const item = document.getElementById(`id-${id}`)
+    // order.style.display='none'
+    item.remove()
+    userList = localStorage.userList
+    userList = JSON.parse(localStorage.userList)
+    const index = userList.cart.findIndex(i=> i.id==id)
+    userList.cart.splice(index,1);
+    localStorage.userList = JSON.stringify(userList)
+    location.reload()
 }

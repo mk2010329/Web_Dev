@@ -72,18 +72,17 @@ async function showAcc(){
 }
 
 async function addToCart(id){
-    
-    let loggedInUser = localStorage.userList
+
     let users=""
-    if(loggedInUser){
-        loggedInUser = JSON.parse(localStorage.userList)
+    // if(loggedInUser){
+       let loggedInUser = JSON.parse(localStorage.userList)
       
-    }else{
-        const data = await fetch('app/data/users.json')
-        users =  await data.json()
-        loggedInUser = users.find(user => user.username==2)
+    // }else{
+    //     const data = await fetch('app/data/users.json')
+    //     users =  await data.json()
+    //     loggedInUser = users.find(user => user.username==2)
          
-    }
+    // }
     itemList = JSON.parse(localStorage.itemList)
     const item = itemList.find(i => i.id == id)
     loggedInUser.cart.push(item)

@@ -5,7 +5,9 @@
         "bankAccount" : {
             "amount" : 100,
             "saleHistory" : []
-        }
+            
+        },
+        "cart":[]
 
     },
     {
