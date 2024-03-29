@@ -1,22 +1,35 @@
-const items = []
+const items = [
+    {
+        "name" : "Headphones",
+        "price" : 100,
+        "quantity" : 1,
+        "category" : "Accessories"
+    },
+    {
+        "name" : "Headphones",
+        "price" : 200,
+        "quantity" : 2,
+        "category" : "Accessories"
+    }
+]
 
-function uploadItem(item){
+export function uploadItem(item){
+    
+}
+
+export function searchItem(item){
 
 }
 
-function searchItem(item){
-
-}
-
-function getItems(){
+export function getItems(){
     return items;
 }
 
 
-function storeItem(){
+export function storeItem(){
 
 }
 
-function purchaseItem(item){
+export function purchaseItem(item){
     
 }

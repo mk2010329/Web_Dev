@@ -1,24 +1,38 @@
-export let users = []
-let loggedInUser = {}
+// import { createRequire } from "module";
+// import { readFile } from 'node:fs';
+// const require = createRequire(import.meta.url);
+// const fs = require('fs')
 
-document.addEventListener('DOMContentLoaded', domHandler);
-async function domHandler(){
-    const userDataResponse = await fetch('app/data/users.json');
+var usersList = []
+var loggedInUser = {}
+
+async function loadUsers(){
+    const userDataResponse = await fetch('/app/data/users.json');
     const userDataArray = await userDataResponse.json();
-    users = userDataArray;
-    console.log(users);
+    return userDataArray
 }
 
-export function findUser(username, password) {
-    const foundUser = users.find((user)=>user.username==username && user.password==password);
+export async function findUser(username, password) {
+    usersList = await loadUsers() 
+   localStorage.users =  JSON.stringify(usersList)  
+   let list = localStorage.users
+    const foundUser = usersList.find((user)=>user.username==username && user.password==password);
     if(foundUser === undefined){
         return undefined;
     }else{
+        console.log(foundUser);
         loggedInUser = foundUser
-        return foundUser;
+        return loggedInUser;
     }
 }
 
-function getLoggedInUser() {
+export function getLoggedInUser() {
     return loggedInUser;
 }
+
+
+// fs.readFile('/app/data/users.json', (err, data) => {
+//     if (err) throw err;
+//     console.log(data);
+//   }); 
+

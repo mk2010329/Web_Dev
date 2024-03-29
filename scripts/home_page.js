@@ -76,6 +76,67 @@ async function showAcc() {
 
 async function addToCart(id) {
 
+  let users = ""
+  // if(loggedInUser){
+  let loggedInUser = JSON.parse(localStorage.userList)
+
+  // }else{
+  //     const data = await fetch('app/data/users.json')
+  //     users =  await data.json()
+  //     loggedInUser = users.find(user => user.username==2)
+
+  // }
+  itemList = JSON.parse(localStorage.itemList)
+}
+  else {
+  const data = await fetch('app/data/items.json')
+  itemList = await data.json()
+
+}
+computer = itemList.filter(p => p.category == "laptop")
+localStorage.itemList = JSON.stringify(itemList)
+items.innerHTML = computer.map(item => getItems(item)).join("");
+}
+
+async function showMobile() {
+  slider.style.display = 'none'
+  categories.style.display = 'none'
+  hr.style.display = 'none'
+  let mobile = ""
+  itemList = localStorage.itemList
+  if (itemList) {
+    itemList = JSON.parse(localStorage.itemList)
+  }
+  else {
+    const data = await fetch('app/data/items.json')
+    itemList = await data.json()
+  }
+  mobile = itemList.filter(p => p.category == "mobile")
+  localStorage.itemList = JSON.stringify(itemList)
+  items.innerHTML = mobile.map(item => getItems(item)).join("");
+}
+
+async function showAcc() {
+  slider.style.display = 'none'
+  categories.style.display = 'none'
+  hr.style.display = 'none'
+  let acc = ""
+  itemList = localStorage.itemList
+  if (itemList) {
+    itemList = JSON.parse(localStorage.itemList)
+  }
+  else {
+    const data = await fetch('app/data/items.json')
+    itemList = await data.json()
+  }
+  acc = itemList.filter(p => p.category == "accessories")
+  items.innerHTML = acc.map(item => getItems(item)).join("");
+  localStorage.itemList = JSON.stringify(itemList)
+
+}
+
+async function addToCart(id) {
+
   let loggedInUser = localStorage.userList
   let users = ""
   if (loggedInUser) {
@@ -126,15 +187,15 @@ async function searchItems() {
     itemList = await data.json()
 
   }
-  const filteredItems = itemList.filter((item) => ItemFinder(item,searchBar.value));
+  const filteredItems = itemList.filter((item) => ItemFinder(item, searchBar.value));
   console.log(itemList);
   console.log(filteredItems)
   items.innerHTML = filteredItems.map(item => getItems(item)).join("");
 }
 
-function ItemFinder(item,text) {
+function ItemFinder(item, text) {
   const newText = text.toLowerCase().trim();
-  if(item.name.toLowerCase().includes(newText)){
-      return item;
+  if (item.name.toLowerCase().includes(newText)) {
+    return item;
   }
 }

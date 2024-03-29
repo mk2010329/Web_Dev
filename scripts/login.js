@@ -1,8 +1,8 @@
-import { findUser,users } from "../app/repo/UsersRepo.js";
+import { findUser} from "../app/repo/UsersRepo.js";
 const form = document.querySelector("#login-form");//select the form attribute.
 
 form.addEventListener('submit',handleSubmission);
-function handleSubmission(e) {
+async function handleSubmission(e) {
     e.preventDefault();
     const formdata = new FormData(e.target);
     const loginOBJ = {};
@@ -10,9 +10,10 @@ function handleSubmission(e) {
         loginOBJ[key] = value; //form the login obj.
     }
     console.log(loginOBJ);
-
-    if(findUser(loginOBJ.user,loginOBJ.pass)){
-        window.location.href = "../home_page.html";
+    const user = await findUser(loginOBJ.user,loginOBJ.pass)
+    if(user){
+    localStorage.userList = JSON.stringify(user)
+    window.location.href = "../home_page.html";
     }else{
         alert("Incorrect Username and/or Password")
     }
