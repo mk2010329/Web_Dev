@@ -15,9 +15,7 @@
             "amount" : 200,
             "saleHistory" : []
         },
-        "cart":{
-            "itemsInCart":[]
-        }
+        "cart":[]
 
     }
 ]
