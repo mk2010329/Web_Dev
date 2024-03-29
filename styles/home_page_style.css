@@ -1,19 +1,32 @@
+@font-face {
+    font-family: metro;
+    src: url(Metropolis-Regular.ttf);
+ } 
+
+ body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;  
+    box-sizing: border-box;
+    }
 
 .nav{
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+ justify-content: center;
+ 
 }
 
 /* search bar*/
 .search {
-  
     position: relative;
-    width: 85%;
+    width: 55%;
     padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
   }
   
   .search input[type="text"] {
-    width: 88%;
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 20px;
@@ -28,10 +41,10 @@
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: .9s ease;
     position: absolute;
     top: 0;
     right: 0;
-    transition: .9s ease;
   }
   
   .search button[type="submit"]:hover {
@@ -44,10 +57,11 @@
 
 .switch {
     font-size: 17px;
-    position: relative;
+    position: absolute;
     display: inline-block;
     width: 64px;
     height: 34px;
+    right: 0;
   }
   
   .switch input {
@@ -149,13 +163,10 @@
   .input:checked + .toggle:before {
     transform: translateX(30px);
   }
+
+
+
 /* moving ad*/
-body{
-    padding: 0;
-    margin: 0;
-    height: 100vh;  
-    box-sizing: border-box;
-}
 
 .main{
     width: 100%;
@@ -433,4 +444,162 @@ hr {
 .fil-shoes1, .fil-shoes2 {
   fill: #333333
 }
+
+.categories{
+    height: 50%;
+    margin: 20px;
+    display: flex;
+    padding: 5px;
+}
+
+
+.computer{
+    height: 100%;
+    width: 33%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+.mobile{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    height: 100%;
+    width: 33%;
+}
+.accessories{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    height: 100%;
+    width: 33%;
+    img{
+      border-radius: 2ch;
+    }
+}
+.pic{
+    height: 70%;
+    transition-delay: height 2s;
+}
+
+.comp-title,.mob-title,.acc-title{
+    font-size: x-large;
+    font-family: metro;
+    display: none;
+    img{
+      height: 15em;
+    }
+}
+.comp-pic:hover , .mob-pic:hover , .acc-pic:hover{
+    cursor: pointer;
+    img{
+      height: 15em;
+    }
+    .comp-title,.mob-title , .acc-title{
+        display: block;
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+    }
+}
+
+
+.heading{
+    max-width: 50%;
+    margin: 40px auto;
+    text-align: center;
+    .hr-text {
+      font-weight: bolder;
+      font-family: metro; 
+      font-size: xx-large;
+      position: relative;
+      border: 0;
+      height: 1.5em;
+      &::before {
+        content: '';
+        background: linear-gradient(to right, transparent, black, transparent);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+      }
+      &::after {
+        content: attr(data-content);
+        position: relative;
+        display: inline-block;
+        color: black;
+
+        padding: 0 .5em;
+        line-height: 1.5em;
+        color: black;
+       background-color: white; }
+     }
+}
+
+
+.item-list {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  width: 99%;
+  margin: 10px;
+
+  .item-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      text-align: center;
+      margin: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      img {
+          width: 100%;
+          height: 50%;
+          flex: 1;
+      }
+
+      p {
+          width: 100%;
+          text-align: justify;
+      }
+  }
+
+  .card:hover {
+      box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+  }
+}
+
+.add-btn {
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  width: 100%;
+}
+
+
+.add-btn {
+  background-color: #4CAF50;
+}
+
+.add-btn:hover {
+  background-color: #327435;
+}
+
+
+
+
+
+
+    
 

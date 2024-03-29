@@ -36,7 +36,8 @@
         "bankAccount" : {
             "amount" : 200,
             "saleHistory" : []
-        }
+        },
+        "cart":[]
 
     }
 ]
