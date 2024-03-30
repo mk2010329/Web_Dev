@@ -1,28 +1,22 @@
-const items = [
-    {
-        "name" : "Headphones",
-        "price" : 100,
-        "quantity" : 1,
-        "category" : "Accessories"
-    },
-    {
-        "name" : "Headphones",
-        "price" : 200,
-        "quantity" : 2,
-        "category" : "Accessories"
-    }
-]
+let itemList = []
 
 export function uploadItem(item){
     
 }
-
-export function searchItem(item){
-
+const items = JSON.parse(await getItems())
+export function searchItem(id) {
+    return items.find(i => i.id == id)
 }
 
-export function getItems(){
-    return items;
+export async function getItems(){ 
+    if (localStorage.itemList){
+        itemList = JSON.parse(localStorage.itemList)
+    } else {
+        const data = await fetch('/app/data/items.json')
+        itemList = await data.json()
+        localStorage.itemList = JSON.stringify(itemList)
+    }
+    return localStorage.itemList
 }
 
 

@@ -26,7 +26,10 @@ export async function findUser(username, password) {
     }
 }
 
-export function getLoggedInUser() {
+export async function getLoggedInUser() {
+    const users = await loadUsers()
+    loggedInUser = users[0]
+    console.log(loggedInUser);
     return loggedInUser;
 }
 

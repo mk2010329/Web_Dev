@@ -27,6 +27,13 @@
             "quantity" : 5,
             "picture" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dhYsYydMrCxLliNF0FIvBXCJI8_cqAwxBA&usqp=CAU",
             "category":"accessories"
+        },{
+            "name" : "Airpods ",
+            "price" : 800,
+            "boughtByUser" : "",
+            "quantity" : 5,
+            "picture" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dhYsYydMrCxLliNF0FIvBXCJI8_cqAwxBA&usqp=CAU",
+            "category":"accessories"
         }]
 
     },

@@ -1,25 +1,53 @@
 import * as itemsRepo from "../app/repo/ItemsRepo.js"
 import * as UsersRepo from "../app/repo/UsersRepo.js"
 
-document.addEventListener("DOMContentLoaded", async () =>{
-        document.getElementById("all-items").style.display = "block";
-        document.querySelector("#all-items > .items-list").innerHTML = itemsRepo.getItems()
-                                .map(item => itemCardTemplate(item)).join(" ")
-})
+const loggedInUser = await UsersRepo.getLoggedInUser()
 
+
+document.getElementById("currently-selling-items").style.display = "block";
+displayCurrentUsersItems()
+
+document.getElementById("current-items-button").addEventListener("click", displayCurrentUsersItems)
 document.getElementById("purchase-history-button").addEventListener("click", displayPurchaseHistory)
-document.getElementById("current-items-button").addEventListener("click", DisplayCurrentUsersItems)
-document.getElementById("sale-history-button").addEventListener("click", DisplayUsersSaleHistory)
+document.getElementById("sale-history-button").addEventListener("click", displayUsersSaleHistory)
 
-function itemCardTemplate({name, price, quantity, category, picture}) {
+document.querySelector(".below-header-div").innerHTML =
+                `<h1>Hi ${loggedInUser.name}&#x1F44B;</h1>`
+
+
+function currentItemCardTemplate({name, price, quantity, category, picture}) {
         return `<article class="card product-card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
                 <p><b>Price: </b>${price}</p> <br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
-                <a class="popup-btn">Quick View</a><br>
         </article>`;
+}
+
+function soldItemCardTemplate({name, quantity, category, picture}) {
+        const item = itemsRepo.searchItem(111)
+        return `<article class="card product-card">
+                <img src="${picture}" alt="Item"><br>
+                <p><b>Name: </b>${name}</p><br>
+                <p><b>Quantity: </b>${quantity}</p> <br>
+                <p><b>category: </b>${category}</p><br>
+                <p><b>Bought by User: </b>${item.boughtByUser}</p><br>
+                <p><b>Selling Price: </b>${item.price}</p><br>
+        </article>`;
+}
+
+function displayCurrentUsersItems() {
+        var i;
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+        }
+        document.getElementById("currently-selling-items").style.display = "block";
+        document.querySelector("#currently-selling-items > .items-list").innerHTML = 
+                loggedInUser.listOfCurrentItems
+                        .map(item => currentItemCardTemplate(item)).join(" ")
+
 }
 
 function displayPurchaseHistory() {
@@ -29,37 +57,24 @@ function displayPurchaseHistory() {
                 x[i].style.display = "none";
         }
         document.getElementById("purchase-history").style.display = "block";
-        document.querySelector("#currently-selling-items > .items-list").innerHTML = 
-                UsersRepo.getLoggedInUser().listOfPurchasedItems
-                        .map(item => itemCardTemplate(item)).join(" ")
+        document.querySelector("#purchase-history > .items-list").innerHTML = 
+                loggedInUser.listOfPurchasedItems
+                        .map(item => currentItemCardTemplate(item)).join(" ")
+
 }
 
-function DisplayCurrentUsersItems() {
+async function displayUsersSaleHistory() {
         var i;
         var x = document.getElementsByClassName("tab");
         for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
         }
-        document.getElementById("currently-selling-items").style.display = "block";
-        document.querySelector("#currently-selling-items > .items-list").innerHTML = 
-                UsersRepo.getLoggedInUser().listOfCurrentItems
-                        .map(item => itemCardTemplate(item)).join(" ")
-}
+        document.getElementById("sale-history").style.display = "block"
+        const saleHistoryInfo = document.querySelector(".sale-history-info")
+        saleHistoryInfo.innerHTML += `<h3><b>Number of Items Sold: </b>${loggedInUser.listOfSoldItems.length}</h3>`
 
-function DisplayUsersSaleHistory() {
-        var i;
-        var x = document.getElementsByClassName("tab");
-        for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-        }
-        document.getElementById("sale-history").style.display = "block";
-        document.querySelector("#sale-history > .items-list").innerHTML = 
-                UsersRepo.getLoggedInUser().listOfSoldItems
-                        .map(item => itemCardTemplate(item)).join(" ")
-}
-
-// code for pop up
-document.addEventListener("click", closeItemPopUp)
-function closeItemPopUp() {
+        document.querySelector("#sale-history > .items-list").innerHTML =
+                loggedInUser.listOfSoldItems
+                        .map(item => soldItemCardTemplate(item)).join(" "); 
 
 }
