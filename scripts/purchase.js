@@ -1,23 +1,26 @@
 
-let cartItems = []
-const order = document.querySelector('.order_summary')
+let loggedInUser = []
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    let order = document.querySelector('.order_summary')
     let cart = document.querySelector("#cart-id")
     let summary = document.querySelector(".summary")
-    cartItems = localStorage.userList
-    cartItems = JSON.parse(localStorage.userList)
-    let item = cartItems.cart;
-   cart.innerHTML =  item.map(i => addToCart(i)).join("");
+
+    loggedInUser = JSON.parse(localStorage.loggedInUser)
+    let extractedCart = loggedInUser.cart;
+   cart.innerHTML =  extractedCart.map(i => addToCart(i)).join("");
    let cost = []
-   let price = item.map(i =>cost.push(i.price) )
+   extractedCart.map(i =>cost.push(i.price) )
    let totalCost = cost.reduce((acc,i) => acc+i)
-   let shipping = 20;
-   let Payment = price+ shipping
-    summary.innerHTML = "<br>"+"Total: " + totalCost +" QAR" + "<br>"+"Shipping Charges: " + shipping +" QAR" + "<br>" //+ "Payment: "+ Payment
+   let shipping = 20;   
+   let Payment =Number(totalCost)+Number(shipping)
+    summary.innerHTML = "<br>"+"Total: " + totalCost +" QAR" + "<br>"+"Shipping Charges: " + shipping +" QAR" + "<br>" + "Payment: "+ Payment
     + "<br>"+ payBtn()
 })
+
+
 
 function addToCart(item){
     return `
@@ -34,9 +37,36 @@ function addToCart(item){
 ` 
 }
 
+function handlePayment(){
+    let cart = document.querySelector("#cart-id")
+   let user = JSON.parse(localStorage.loggedInUser)
+   let cost = []
+   let extractedCart = user.cart
+   extractedCart.map(i =>cost.push(i.price) )
+   let totalCost = cost.reduce((acc,i) => acc+i)
+   let shipping = 20;   
+   let Payment =Number(totalCost)+Number(shipping)
+   let  balance = user.bankAccount.amount
+   if(balance>Payment){
+    window.location.href = "confirmation.html";
+   }else{
+    window.location.href = "confirmation.html";
+   // window.alert("Low balance!")
+   }
+
+//    let emtpyArray = []
+//    user.cart = emtpyArray
+  // localStorage.loggedInUser = JSON.stringify(user)
+   cart.innerHTML = user.cart.map(i => addToCart(i)).join("")
+  
+  
+}
+
+
+
 function payBtn(){
     return `
-    <button  class="pay-btn" >Pay Now</span></button>
+    <button  class="pay-btn" onclick="handlePayment()">Pay Now</span></button>
     `
 }
 
@@ -44,10 +74,10 @@ function removeItem(id) {
     const item = document.getElementById(`id-${id}`)
     // order.style.display='none'
     item.remove()
-    userList = localStorage.userList
-    userList = JSON.parse(localStorage.userList)
+    loggedInUser = localStorage.loggedInUser
+    userList = JSON.parse(localStorage.loggedInUser)
     const index = userList.cart.findIndex(i=> i.id==id)
     userList.cart.splice(index,1);
-    localStorage.userList = JSON.stringify(userList)
+    localStorage.loggedInUser = JSON.stringify(userList)
     location.reload()
 }

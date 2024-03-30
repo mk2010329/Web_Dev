@@ -1,5 +1,6 @@
 export class Item{
-    constructor(name, price, boughtByUser, quantity, picture, category){
+    constructor(sellerId , name, price, boughtByUser, quantity, picture, category){
+        this.sellerId= sellerId;
         this.name=name;
         this.price=price;
         this.boughtByUser=boughtByUser;

@@ -1,7 +1,3 @@
-// import { createRequire } from "module";
-// import { readFile } from 'node:fs';
-// const require = createRequire(import.meta.url);
-// const fs = require('fs')
 
 var usersList = []
 var loggedInUser = {}
@@ -30,12 +26,26 @@ export async function getLoggedInUser() {
     const users = await loadUsers()
     loggedInUser = users[0]
     console.log(loggedInUser);
-    return loggedInUser;
+}
+
+export async function uploadItemRpo(newItem){
+    let loggedInUser = getLoggedInUser();
+
+    if (!loggedInUser) {
+        alert("No user logged in.");
+        return;
+    }
+
+    loggedInUser.listOfCurrentItems.push(newItem);
+    localStorage.users = JSON.stringify(usersList);
+    alert("Item uploaded successfully.");
+    return "Item uploaded successfully.";
 }
 
 
-// fs.readFile('/app/data/users.json', (err, data) => {
-//     if (err) throw err;
-//     console.log(data);
-//   }); 
+
+
+export function getLoggedInUser() {
+    return loggedInUser;
+}
 

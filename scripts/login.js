@@ -12,7 +12,7 @@ async function handleSubmission(e) {
     console.log(loginOBJ);
     const user = await findUser(loginOBJ.user,loginOBJ.pass)
     if(user){
-    localStorage.userList = JSON.stringify(user)
+    localStorage.loggedInUser = JSON.stringify(user)
     window.location.href = "../home_page.html";
     }else{
         alert("Incorrect Username and/or Password")
