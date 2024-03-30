@@ -6,19 +6,20 @@
     <title>Upload Item</title>
     <link rel="stylesheet" href="styles/upload.css" />
     <link rel="stylesheet" href="styles/header.css" />
-    <script src="scripts/upload.js"></script>
     <script src="scripts/header_footer.js"></script>
   </head>
   <body>
+    <script type="module" src="scripts/upload.js"></script>
+
     <!-- <iframe src="./header.html" frameborder="0" width="100%"></iframe> -->
 
     <header id="header"></header>
 
     <!-- headber -->
 
-    <div class="formContainer">
+    <div class="Container">
       <h2>Upload Item</h2>
-      <form id="formUpload">
+      <form id="Upload">
         <div class="formGroup">
           <label for="itemName">Item Name:</label>
           <input type="text" id="itemName" name="itemName" required />
@@ -47,6 +48,26 @@
             accept="image/*"
             required
           />
+        </div>
+        <div class="formGroup" id="Cate">
+          <label>Category:</label><br />
+          <input
+            type="radio"
+            id="laptop"
+            name="category"
+            value="laptop"
+            required
+          />
+          <label for="laptop">Laptop</label><br />
+          <input type="radio" id="mobile" name="category" value="mobile" />
+          <label for="mobile">Mobile</label><br />
+          <input
+            type="radio"
+            id="accessories"
+            name="category"
+            value="accessories"
+          />
+          <label for="accessories">Accessories</label><br />
         </div>
         <button type="submit">Upload Item</button>
       </form>

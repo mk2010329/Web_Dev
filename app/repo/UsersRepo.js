@@ -1,3 +1,7 @@
+import { createRequire } from "module";
+import { readFile } from 'node:fs';
+const require = createRequire(import.meta.url);
+const fs = require('fs')
 
 var usersList = []
 var loggedInUser = {}
@@ -26,5 +30,9 @@ export function getLoggedInUser() {
     return loggedInUser;
 }
 
- 
+
+fs.readFile('/app/data/users.json', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+  }); 
 

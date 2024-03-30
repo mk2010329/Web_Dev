@@ -1,55 +1,4 @@
 
-
-
-
-#headbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    padding: 15px 20px;
-    margin: -10px -10px;
-}
-
-
-#ulbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right:20px ; 
-}
-
-#ulbar li{
-    list-style: none;
-    padding: 0px 15px;
-}
-
-#ulbar li a{
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    transition: 0.4s ease;
-}
-
-#headbar a{
-    text-decoration: none;
-    color: white;
-}
-
-#ulbar li a:hover{
-    color: rgb(94, 229, 119);
-}
-
-
-
-
-
-
-
-
-
-
 /* body */
 body {
     font-family: Arial, sans-serif;
@@ -58,7 +7,7 @@ body {
     background-color: var(--background-color);
 }
 
-.formContainer {
+.Container {
     background-color: #d1d1d1;
     max-width: 600px;
     margin: 50px auto;
@@ -108,10 +57,23 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px ;
 }
 
 button:hover {
     background-color: #0056b3;
 } 
+  
+
+#Cate {
+    display: flex;
+    flex-direction: row; 
+    align-content: baseline;
+}
+  
+#Cate label {
+    margin-right: 15px;
+    margin-top: 10px;
+}
   
 
