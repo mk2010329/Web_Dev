@@ -75,7 +75,7 @@ async function addToCart(id){
 
     let users=""
     // if(loggedInUser){
-       let loggedInUser = JSON.parse(localStorage.userList)
+       let loggedInUser = JSON.parse(localStorage.loggedInUser)
       
     // }else{
     //     const data = await fetch('app/data/users.json')
@@ -86,7 +86,7 @@ async function addToCart(id){
     itemList = JSON.parse(localStorage.itemList)
     const item = itemList.find(i => i.id == id)
     loggedInUser.cart.push(item)
-    localStorage.userList = JSON.stringify(loggedInUser)   
+    localStorage.loggedInUser = JSON.stringify(loggedInUser)   
     window.alert(item.name + " is add to your cart!");
 
 }
