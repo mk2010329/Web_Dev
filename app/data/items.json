@@ -1,7 +1,7 @@
 
 [
     {   
-        "sellerId":1,
+        "sellerId":2,
         "id": 111,
         "name" : "Dell laptop",
         "price" : 2000,
@@ -11,7 +11,7 @@
         "category":"laptop"
     },
     {   
-        "sellerId":1,
+        "sellerId":2,
         "id": 112,
         "name" : "Dell laptop",
         "price" : 2000,
@@ -21,7 +21,7 @@
         "category":"laptop"
     },
     {   
-        "sellerId":1,
+        "sellerId":2,
         "id": 113,
         "name" : "Iphone 15",
         "price" : 2000,
@@ -31,7 +31,7 @@
         "category":"mobile"
     },
     {   
-        "sellerId":1,
+        "sellerId":2,
         "id": 114,
         "name" : "Iphone 15",
         "price" : 2000,
@@ -41,7 +41,7 @@
         "category":"mobile"
     },
     {   
-        "sellerId":1,
+        "sellerId":2,
         "id": 115,
         "name" : "Airpods ",
         "price" : 800,

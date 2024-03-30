@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let order = document.querySelector('.order_summary')
     let cart = document.querySelector("#cart-id")
     let summary = document.querySelector(".summary")
-
+    let amount = document.querySelector(".amount") 
     loggedInUser = JSON.parse(localStorage.loggedInUser)
+    amount.innerHTML= loggedInUser.bankAccount.amount
     let extractedCart = loggedInUser.cart;
    cart.innerHTML =  extractedCart.map(i => addToCart(i)).join("");
    let cost = []
@@ -50,13 +51,11 @@ function handlePayment(){
    if(balance>Payment){
     window.location.href = "confirmation.html";
    }else{
-    window.location.href = "confirmation.html";
-   // window.alert("Low balance!")
+    //window.location.href = "confirmation.html";
+   window.alert("Low balance!")
    }
 
-//    let emtpyArray = []
-//    user.cart = emtpyArray
-  // localStorage.loggedInUser = JSON.stringify(user)
+
    cart.innerHTML = user.cart.map(i => addToCart(i)).join("")
   
   

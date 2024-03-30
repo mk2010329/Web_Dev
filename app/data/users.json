@@ -3,7 +3,7 @@
         "username" : 1,
         "password" : 1,
         "bankAccount" : {
-            "amount" : 100,
+            "amount" : 10000,
             "saleHistory" : []
         },
         "name" : "Ali",
@@ -37,7 +37,14 @@
             "amount" : 200,
             "saleHistory" : []
         },
-        "cart":[]
+        "name" : "Basil",
+        "surname" : "Saeed",
+        "shippingAddress" : "Qatar",
+        "listOfPurchasedItems" : [],
+        "cart" : [],
+        "companyName" : "Q-University",
+        "listOfCurrentItems" : [],
+        "listOfSoldItems" : []
 
     }
 ]

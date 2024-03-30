@@ -11,7 +11,16 @@ nav{
     margin-left: 16%;
     margin-top: 2%;
 }
-
+.balance{
+  font-size: 20px;
+    margin-bottom: 0.5em;
+    color:black;
+    margin-left: 16.5%;
+    margin-top: 1%;
+    display: flex;
+    width: 11%;
+    justify-content: space-between;
+}
 main{
     display: flex;
     justify-content: space-evenly;
