@@ -22,6 +22,30 @@ export async function findUser(username, password) {
     }
 }
 
+export async function getLoggedInUser() {
+    const users = await loadUsers()
+    loggedInUser = users[0]
+    console.log(loggedInUser);
+}
+
+export async function uploadItemRpo(newItem){
+    let loggedInUser = getLoggedInUser();
+
+    if (!loggedInUser) {
+        alert("No user logged in.");
+        return;
+    }
+
+    loggedInUser.listOfCurrentItems.push(newItem);
+    localStorage.users = JSON.stringify(usersList);
+    alert("Item uploaded successfully.");
+    return "Item uploaded successfully.";
+}
+
+
+
+
+
 export function getLoggedInUser() {
     return loggedInUser;
 }

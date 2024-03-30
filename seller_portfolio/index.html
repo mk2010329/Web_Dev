@@ -12,14 +12,8 @@
     <script src="../scripts/header_footer.js"></script>
     <header id="header"></header>
 
-    <!-- <nav class="header-nav">
-        <ul>
-            <li><a href="">Your Items</a></li>
-            <li><a href="">Account</a></li>
-        </ul>
-    </nav> -->
     <div class="below-header-div">
-        <h1>Hi NAME&#x1F44B;</h1>
+        
     </div>
     <main>
         
@@ -28,105 +22,49 @@
                 <h2>Sell an Item</h2>
                 <p>Sell an item by clicking the button</p>
             </div>
-            <a href=""><span class="material-symbols-outlined">payments</span>Sell</a>
+            <a href="/upload.html"><span class="material-symbols-outlined">payments</span>Sell</a>
         </div>  
 
         <h1>Your Items</h1>
 
-        <!-- <section class="seach-area">
-            <nav>
-                <ul>
-                    <li><a href="">All Items</a></li>
-                    <li><a href="">Currently Selling Items</a></li>
-                    <li><a href="">Sale History</a></li>
-                </ul>
-            </nav>
-            <p>--insert search bar here--</p>
-        </section> -->
         <nav class="w3-bar">
             <button class="w3-bar-item w3-button"id="current-items-button" >Currently Selling Items</button>
             <button class="w3-bar-item w3-button" id="sale-history-button" >Sale History</button>
             <button class="w3-bar-item w3-button" id="purchase-history-button" >Purchase History</button>
         </nav>
           
-          <section id="currently-selling-items" class="w3-container tab" style="display:none">
-            <h2>Currently Selling Items</h2>
-             
-            <div class="items-list">
-            </div>
+        <section id="currently-selling-items" class="w3-container tab" style="display:none">
+        <h2>Currently Selling Items</h2>
+            
+        <div class="items-list">
+        </div>
 
-          </section>
+        </section>
           
-          <section id="sale-history" class="w3-container tab" style="display:none">
+        <section id="sale-history" class="w3-container tab" style="display:none">
             <h2>Sale History</h2>
-            
-            <div class="items-list"> 
-            </div>
-            
-          </section>
-
-          <section id="purchase-history" class="w3-container tab">
-            <h2>Purchase History</h2>
-            
-            <div class="items-list">
-            </div>
-
-          </section>
-
-
-        <div class="product-card">
-            <h2 class="name">Camera</h2>
-            <span class="price">$250.00</span>
-            <a class="popup-btn">Quick View</a>
-            <img src="" class="product-img" alt="">
+        <div class="sale-history-info">
+            <h4>You can find the items and the sale history details as follows:</h4><br>
         </div>
-        <div class="popup-view">
-            <div class="popup-card">
-            <a><i class="fas fa-times close-btn"></i></a>
-            <div class="product-img">
-                <img src="" alt="">
-            </div>
-            <div class="info">
-                <h2>Camera<br><span>Classic Camera</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <span class="price">$250.00</span>
-                <a href="#" class="add-cart-btn">Add to Cart</a>
-                <a href="#" class="add-wish">Add to Wishlist</a>
-            </div>
-            </div>
+        
+        <div class="items-list"> 
+        </div>
+        
+        </section>
+
+        <section id="purchase-history" class="w3-container tab" style="display:none">
+        <h2>Purchase History</h2>
+        
+        <div class="items-list">
         </div>
 
+        </section>
+    
 
     </main>
     
-    <script type="module" src="../scripts/swiper_seller_portfolio.js"></script>
+    <script type="module" src="/scripts/swiper_seller_portfolio.js"></script>
     <footer id="footer"></footer>
-    <!-- script to handle popup -->
-    <script type="text/javascript">
-        var popupViews = document.querySelectorAll('.popup-view');
-        var popupBtns = document.querySelectorAll('.popup-btn');
-        var closeBtns = document.querySelectorAll('.close-btn');
-    
-        //javascript for quick view button
-        var popup = function(popupClick){
-          popupViews[popupClick].classList.add('active');
-        }
-    
-        popupBtns.forEach((popupBtn, i) => {
-          popupBtn.addEventListener("click", () => {
-            popup(i);
-          });
-        });
-    
-        //javascript for close button
-        closeBtns.forEach((closeBtn) => {
-          closeBtn.addEventListener("click", () => {
-            popupViews.forEach((popupView) => {
-              popupView.classList.remove('active');
-            });
-          });
-        });
-        </script>
 
 </body>
 </html>

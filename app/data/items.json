@@ -1,11 +1,10 @@
-
 [
     {   
         "sellerId":2,
         "id": 111,
         "name" : "Dell laptop",
         "price" : 2000,
-        "boughtByUser" : "",
+        "boughtByUser" : "Ali Murad",
         "quantity" : 5,
         "picture" : "https://images-cdn.ubuy.co.in/633aae8db52ac20d0b37956e-dell-inspiron-15-3000-laptop-2021.jpg",
         "category":"laptop"
