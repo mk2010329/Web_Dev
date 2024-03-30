@@ -22,6 +22,12 @@ export async function findUser(username, password) {
     }
 }
 
+export async function getLoggedInUser() {
+    const users = await loadUsers()
+    loggedInUser = users[0]
+    console.log(loggedInUser);
+}
+
 export async function uploadItemRpo(newItem){
     let loggedInUser = getLoggedInUser();
 

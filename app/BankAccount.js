@@ -5,9 +5,9 @@ export class bankAccount {
     }
 
     creditAmount(amount) {
-
+        this.amount += amount
     }
     debitAmount(amount) {
-        
+        this.amount -= amount
     }
 }
