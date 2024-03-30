@@ -76,22 +76,23 @@ async function showAcc() {
 
 async function addToCart(id) {
 
-  let loggedInUser = localStorage.userList
+  let loggedInUser = localStorage.loggedInUser
   let users = ""
   if (loggedInUser) {
-    loggedInUser = JSON.parse(localStorage.userList)
+    loggedInUser = JSON.parse(localStorage.loggedInUser)
+    itemList = JSON.parse(localStorage.itemList)
+    const item = itemList.find(i => i.id == id)
+    loggedInUser.cart.push(item)
+    localStorage.loggedInUser = JSON.stringify(loggedInUser)
+    window.alert(item.name + " is added to your cart!");
 
   } else {
     const data = await fetch('app/data/users.json')
     users = await data.json()
-    loggedInUser = users.find(user => user.username == 2)
-
+    window.alert("Please log in to continue")
+    window.location.href = "../login.html";
   }
-  itemList = JSON.parse(localStorage.itemList)
-  const item = itemList.find(i => i.id == id)
-  loggedInUser.cart.push(item)
-  localStorage.userList = JSON.stringify(loggedInUser)
-  window.alert(item.name + " is add to your cart!");
+ 
 
 }
 
@@ -126,6 +127,7 @@ async function searchItems() {
     itemList = await data.json()
 
   }
+  localStorage.itemList = JSON.stringify(itemList)
   const filteredItems = itemList.filter((item) => ItemFinder(item, searchBar.value));
   console.log(itemList);
   console.log(filteredItems)

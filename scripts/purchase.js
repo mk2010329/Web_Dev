@@ -1,11 +1,13 @@
 
 let loggedInUser = []
-const order = document.querySelector('.order_summary')
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    let order = document.querySelector('.order_summary')
     let cart = document.querySelector("#cart-id")
     let summary = document.querySelector(".summary")
+
     loggedInUser = JSON.parse(localStorage.loggedInUser)
     let extractedCart = loggedInUser.cart;
    cart.innerHTML =  extractedCart.map(i => addToCart(i)).join("");
