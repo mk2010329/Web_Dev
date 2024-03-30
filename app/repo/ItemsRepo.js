@@ -13,8 +13,11 @@ const items = [
     }
 ]
 
-export function uploadItem(item){
-    
+export function uploadItem(newItem){
+    let items = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("items")) : [];
+    items.push(newItem);
+    localStorage.setItem("items", JSON.stringify(items));
+    return "Done" ;
 }
 
 export function searchItem(item){
