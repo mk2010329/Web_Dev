@@ -32,6 +32,14 @@ function addToCart(item){
     <p><b>Price:</b> ${item.price} QAR </p>
     </div>
     <div>
+    <label for="quantity">Quantity</label>
+    <select id="quantity" name="Quantity">
+    <option value="one">1</option>
+    <option value="two">2</option>
+    <option value="three">3</option>
+    <option value="four">4</option>
+    <option value="five">5</option>
+    </select>
     <button  class="add-btn"  onclick="removeItem('${item.id}')"><span>&minus;</span></button>
     </div>
     </div>

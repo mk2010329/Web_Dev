@@ -3,9 +3,17 @@ var usersList = []
 var loggedInUser = {}
 
 async function loadUsers(){
-    const userDataResponse = await fetch('/app/data/users.json');
-    const userDataArray = await userDataResponse.json();
-    return userDataArray
+    let users = localStorage.users
+    let userDataResponse = ""
+    if(users){
+        users = JSON.parse(localStorage.users)
+    }
+    else{
+        userDataResponse = await fetch('/app/data/users.json');
+        users = await userDataResponse.json();
+    }
+    
+    return users
 }
 
 export async function findUser(username, password) {
@@ -24,8 +32,9 @@ export async function findUser(username, password) {
 
 export async function getLoggedInUser() {
     const users = await loadUsers()
-    loggedInUser = users[0]
+    loggedInUser = localStorage.loggedInUser
     console.log(loggedInUser);
+    return JSON.parse(loggedInUser)
 }
 
 export async function uploadItemRpo(newItem){
@@ -43,10 +52,4 @@ export async function uploadItemRpo(newItem){
 }
 
 
-
-
-
-export function getLoggedInUser() {
-    return loggedInUser;
-}
 

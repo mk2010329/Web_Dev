@@ -71,7 +71,7 @@ async function displayUsersSaleHistory() {
         }
         document.getElementById("sale-history").style.display = "block"
         const saleHistoryInfo = document.querySelector(".sale-history-info")
-        saleHistoryInfo.innerHTML += `<h3><b>Number of Items Sold: </b>${loggedInUser.listOfSoldItems.length}</h3>`
+        saleHistoryInfo.innerHTML = `<h3><b>Number of Items Sold: </b>${loggedInUser.listOfSoldItems.length}</h3>`
 
         document.querySelector("#sale-history > .items-list").innerHTML =
                 loggedInUser.listOfSoldItems

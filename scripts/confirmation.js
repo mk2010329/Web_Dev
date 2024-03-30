@@ -10,7 +10,9 @@ function orderNow(){
     let loggedInUser = JSON.parse(localStorage.loggedInUser)
     let extractedCart = loggedInUser.cart
     let sellers = []
-    loggedInUser.listOfPurchasedItems = extractedCart 
+     extractedCart.map(element => {
+        loggedInUser.listOfPurchasedItems.push(element)    
+    });
 
     let cost = []
     extractedCart.map(i =>cost.push(i.price) )
@@ -23,12 +25,17 @@ function orderNow(){
    extractedCart.map(item => {
     sellers.push(item.sellerId)
    });
-   console.log(sellers);
+
     let users = JSON.parse(localStorage.users)
     
     const foundUser = users.find(user=>user.username==sellers);
-   foundUser.bankAccount.amount+=Payment
-   foundUser.listOfSoldItems = extractedCart
+    const foundLoggedInUser = users.find(user => user.username==loggedInUser.username)
+    foundLoggedInUser.bankAccount.amount-=Payment
+    foundUser.bankAccount.amount+=Payment
+    extractedCart.map(element => {
+    foundUser.listOfSoldItems.push(element)  });
+
+    extractedCart.map(item => {foundLoggedInUser.listOfPurchasedItems.push(item)})
     // for(let i =0 ;i<users.length;i++){
     //     for (let j=0; j<users.length+1;j++){
     //         if(users.include(sellers[i])){
@@ -41,10 +48,10 @@ function orderNow(){
     // }
 
    loggedInUser.bankAccount.amount-=Payment
-   console.log(loggedInUser.bankAccount.amount);
    let emtpyArray = []
    loggedInUser.cart = emtpyArray
   localStorage.loggedInUser = JSON.stringify(loggedInUser)
   localStorage.users = JSON.stringify(users)
+  window.alert("Transaction successful")
 
 }

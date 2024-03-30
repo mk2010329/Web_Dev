@@ -10,7 +10,7 @@ async function handleSubmission(e) {
         loginOBJ[key] = value; //form the login obj.
     }
     console.log(loginOBJ);
-    const user = await findUser(loginOBJ.user,loginOBJ.pass)
+    let user = await findUser(loginOBJ.user,loginOBJ.pass)
     if(user){
     localStorage.loggedInUser = JSON.stringify(user)
     window.location.href = "../home_page.html";

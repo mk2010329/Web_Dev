@@ -12,6 +12,23 @@
         "listOfPurchasedItems" : [],
         "cart" : [],
         "companyName" : "Q-University",
+        "listOfCurrentItems" : [],
+        "listOfSoldItems" : []
+
+    },
+    {
+        "username" : 2,
+        "password" : 2,
+        "bankAccount" : {
+            "amount" : 200,
+            "saleHistory" : []
+        },
+        "name" : "Basil",
+        "surname" : "Saeed",
+        "shippingAddress" : "Qatar",
+        "listOfPurchasedItems" : [],
+        "cart" : [],
+        "companyName" : "Q-University",
         "listOfCurrentItems" : [{
             "name" : "Dell laptop",
             "price" : 2000,
@@ -35,23 +52,6 @@
             "picture" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dhYsYydMrCxLliNF0FIvBXCJI8_cqAwxBA&usqp=CAU",
             "category":"accessories"
         }]
-
-    },
-    {
-        "username" : 2,
-        "password" : 2,
-        "bankAccount" : {
-            "amount" : 200,
-            "saleHistory" : []
-        },
-        "name" : "Basil",
-        "surname" : "Saeed",
-        "shippingAddress" : "Qatar",
-        "listOfPurchasedItems" : [],
-        "cart" : [],
-        "companyName" : "Q-University",
-        "listOfCurrentItems" : [],
-        "listOfSoldItems" : []
 
     }
 ]
