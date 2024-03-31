@@ -24,6 +24,8 @@ function currentItemCardTemplate({name, price, quantity, category, picture}) {
                 <p><b>category: </b>${category}</p><br>
         </article>`;
 }
+    
+
 
 function soldItemCardTemplate({name, quantity, category, picture}) {
         const item = itemsRepo.searchItem(111)
@@ -36,6 +38,8 @@ function soldItemCardTemplate({name, quantity, category, picture}) {
                 <p><b>Selling Price: </b>${item.price}</p><br>
         </article>`;
 }
+
+
 
 function displayCurrentUsersItems() {
         var i;

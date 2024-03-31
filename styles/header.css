@@ -27,6 +27,9 @@ header #centerDiv{
     margin-left: 105px;
 }
 
+.hidden{
+    display: none;
+}
 
 .ulbar{
     display: flex;
@@ -110,6 +113,8 @@ footer{
 footer #icons-under{
     padding-bottom: 15px;
 }
+
+
 
 
 /* phone screen here */

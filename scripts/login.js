@@ -14,6 +14,8 @@ async function handleSubmission(e) {
     if(user){
     localStorage.loggedInUser = JSON.stringify(user)
     window.location.href = "../home_page.html";
+    document.querySelector("#log-in-icon").classList.add("hidden");
+    document.querySelector("#rightHeader").classList.remove("hidden");
     }else{
         alert("Incorrect Username and/or Password")
     }

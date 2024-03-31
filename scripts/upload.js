@@ -9,8 +9,9 @@ document.getElementById("Upload").addEventListener("submit",async function(event
     let price = parseFloat(document.getElementById("price").value);
     let quantity = parseInt(document.getElementById("quantity").value);
     let category = document.querySelector('input[name="category"]:checked').value;
-    let picture = document.getElementById("picture").files[0];
-
+    let picture = document.getElementById("picture").files[0];   
+    console.log(picture);
+    console.log(picture.name);
 
 
 
@@ -33,13 +34,12 @@ document.getElementById("Upload").addEventListener("submit",async function(event
 
     
     let sellerId = loggedInUser.id;
-    let newItem = new Item(sellerId, itemName, price, "", quantity, picture, category);
+    let newItem = new Item(sellerId, itemName, price, "", quantity, picture.name, category);
     let result = await itemsRepo.uploadItem(newItem);
     let result1 = await UsersRepo.uploadItemRpo(newItem);
 
   
     showMessage(result1);
-    showMessage(result);
     document.getElementById("Upload").reset();
   });
   
