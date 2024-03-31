@@ -11,6 +11,9 @@ document.getElementById("Upload").addEventListener("submit",async function(event
     let category = document.querySelector('input[name="category"]:checked').value;
     let picture = document.getElementById("picture").files[0];
 
+
+
+
     if (!itemName || isNaN(price) || isNaN(quantity) || !picture ) {
         showMessage("Please fill in all fields.");
         return;
@@ -21,7 +24,7 @@ document.getElementById("Upload").addEventListener("submit",async function(event
         return;
     }
 
-    let loggedInUser = UsersRepo.getLoggedInUser();
+    let loggedInUser = await  UsersRepo.getLoggedInUser();
 
     if (!loggedInUser) {
         showMessage("Please log in to upload items.");
@@ -29,14 +32,14 @@ document.getElementById("Upload").addEventListener("submit",async function(event
     }
 
     
-    // this code should push items to the items list and the user listOfCurr the issue is here 
     let sellerId = loggedInUser.id;
-    let newItem = new Item(sellerId, itemName, price, "", quantity, picture.name, category);
+    let newItem = new Item(sellerId, itemName, price, "", quantity, picture, category);
     let result = await itemsRepo.uploadItem(newItem);
     let result1 = await UsersRepo.uploadItemRpo(newItem);
 
   
     showMessage(result1);
+    showMessage(result);
     document.getElementById("Upload").reset();
   });
   

@@ -1,9 +1,9 @@
 let itemList = []
 
 export function uploadItem(newItem){
-    let items = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("items")) : [];
+    let items = JSON.parse(localStorage.getItem("itemList"));
     items.push(newItem);
-    localStorage.setItem("items", JSON.stringify(items));
+    localStorage.setItem("itemList", JSON.stringify(items));
     return "Done" ;
 }
 const items = JSON.parse(await getItems())
