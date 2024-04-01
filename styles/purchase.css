@@ -123,7 +123,7 @@ main{
   }
 
   @media (max-width: 40rem) {
-  .balance{
+    .balance{
     width: 30%;
   }
   main{

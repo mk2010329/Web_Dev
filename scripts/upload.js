@@ -9,7 +9,11 @@ document.getElementById("Upload").addEventListener("submit",async function(event
     let price = parseFloat(document.getElementById("price").value);
     let quantity = parseInt(document.getElementById("quantity").value);
     let category = document.querySelector('input[name="category"]:checked').value;
-    let picture = document.getElementById("picture").files[0];
+    let picture = document.getElementById("picture").files[0];   
+    console.log(picture);
+    console.log(picture.name);
+
+
 
     if (!itemName || isNaN(price) || isNaN(quantity) || !picture ) {
         showMessage("Please fill in all fields.");
@@ -30,7 +34,6 @@ document.getElementById("Upload").addEventListener("submit",async function(event
     }
 
     
-    // this code should push items to the items list and the user listOfCurr the issue is here 
     let sellerId = loggedInUser.id;
     let newItem = new Item(sellerId, itemName, price, "", quantity, picture.name, category);
     let result = await itemsRepo.uploadItem(newItem);
