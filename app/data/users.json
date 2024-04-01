@@ -30,6 +30,7 @@
         "cart" : [],
         "companyName" : "Q-University",
         "listOfCurrentItems" : [{
+            "id":111,
             "name" : "Dell laptop",
             "price" : 2000,
             "boughtByUser" : "",

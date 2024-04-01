@@ -35,6 +35,10 @@ async function showComp() {
   computer = itemList.filter(p => p.category == "laptop")
   localStorage.itemList = JSON.stringify(itemList)
   items.innerHTML = computer.map(item => getItems(item)).join("");
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 
 async function showMobile() {
@@ -53,6 +57,10 @@ async function showMobile() {
   mobile = itemList.filter(p => p.category == "mobile")
   localStorage.itemList = JSON.stringify(itemList)
   items.innerHTML = mobile.map(item => getItems(item)).join("");
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 
 async function showAcc() {
@@ -71,6 +79,10 @@ async function showAcc() {
   acc = itemList.filter(p => p.category == "accessories")
   items.innerHTML = acc.map(item => getItems(item)).join("");
   localStorage.itemList = JSON.stringify(itemList)
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 
 }
 
@@ -99,7 +111,7 @@ async function addToCart(id) {
 function getItems(item) {
   return `
     <div class ="item-card">
-    <img src="${item.picture}">
+    <img src="${item.picture}" id="item_Pic">
     <div>
     <p><b>Title:</b> ${item.name} </p>
     <p><b>Price:</b> ${item.price} QAR </p>

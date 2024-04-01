@@ -33,7 +33,6 @@ export async function findUser(username, password) {
 export async function getLoggedInUser() {
     const users = await loadUsers()
     loggedInUser = localStorage.loggedInUser
-    console.log(loggedInUser);
     return JSON.parse(loggedInUser)
 }
 

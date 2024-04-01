@@ -32,10 +32,19 @@ function orderNow(){
     const foundLoggedInUser = users.find(user => user.username==loggedInUser.username)
     foundLoggedInUser.bankAccount.amount-=Payment
     foundUser.bankAccount.amount+=Payment
-    extractedCart.map(element => {
-    foundUser.listOfSoldItems.push(element)  });
+    extractedCart.map(element => {foundUser.listOfSoldItems.push(element)  });
 
     extractedCart.map(item => {foundLoggedInUser.listOfPurchasedItems.push(item)})
+
+
+    // const index = users.findIndex(i=> i.listOfCurrentItems.id==extractedCart.id)
+    // console.log(index);
+    
+    // extractedCart.map(index =>{
+    //     index.findIndex(i=> i.listOfCurrentItems.id==extractedCart.id)
+    //     users.listOfCurrentItems.splice(index,1);} )
+    
+
     // for(let i =0 ;i<users.length;i++){
     //     for (let j=0; j<users.length+1;j++){
     //         if(users.include(sellers[i])){
@@ -45,7 +54,7 @@ function orderNow(){
     //             console.log(users[j].username);
     //         }
     //     }
-    // }
+    // }    
 
    loggedInUser.bankAccount.amount-=Payment
    let emtpyArray = []

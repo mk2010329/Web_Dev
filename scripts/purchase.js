@@ -8,17 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = document.querySelector("#cart-id")
     let summary = document.querySelector(".summary")
     let amount = document.querySelector(".amount") 
+   
+
     loggedInUser = JSON.parse(localStorage.loggedInUser)
     amount.innerHTML= loggedInUser.bankAccount.amount
     let extractedCart = loggedInUser.cart;
    cart.innerHTML =  extractedCart.map(i => addToCart(i)).join("");
+   
+   let quantity=document.querySelectorAll("#quantity")
    let cost = []
+   let quantityItem = []
+   quantity.forEach(e => e.addEventListener("change", ()=>{
+       quantityItem.push(e.value);
+   }))
+   console.log(quantityItem);
    extractedCart.map(i =>cost.push(i.price) )
    let totalCost = cost.reduce((acc,i) => acc+i)
    let shipping = 20;   
    let Payment =Number(totalCost)+Number(shipping)
     summary.innerHTML = "<br>"+"Total: " + totalCost +" QAR" + "<br>"+"Shipping Charges: " + shipping +" QAR" + "<br>" + "Payment: "+ Payment
     + "<br>"+ payBtn()
+    
+    
+  
+    
 })
 
 
@@ -34,11 +47,11 @@ function addToCart(item){
     <div>
     <label for="quantity">Quantity</label>
     <select id="quantity" name="Quantity">
-    <option value="one">1</option>
-    <option value="two">2</option>
-    <option value="three">3</option>
-    <option value="four">4</option>
-    <option value="five">5</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
     </select>
     <button  class="add-btn"  onclick="removeItem('${item.id}')"><span>&minus;</span></button>
     </div>
@@ -59,17 +72,10 @@ function handlePayment(){
    if(balance>Payment){
     window.location.href = "confirmation.html";
    }else{
-    //window.location.href = "confirmation.html";
    window.alert("Low balance!")
    }
-
-
    cart.innerHTML = user.cart.map(i => addToCart(i)).join("")
-  
-  
 }
-
-
 
 function payBtn(){
     return `

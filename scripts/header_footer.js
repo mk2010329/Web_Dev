@@ -6,7 +6,6 @@ fetch('/header.html')
     });
 
 
-
 fetch('/footer.html')
 .then(response => response.text())
 .then(html => {

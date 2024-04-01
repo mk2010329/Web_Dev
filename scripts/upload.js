@@ -21,10 +21,11 @@ document.getElementById("Upload").addEventListener("submit",async function(event
         return;
     }
 
-    let loggedInUser = UsersRepo.getLoggedInUser();
+    let loggedInUser = localStorage.loggedInUser;
 
     if (!loggedInUser) {
-        showMessage("Please log in to upload items.");
+        // showMessage("Please log in to upload items.");
+        window.alert("Pleae log in to continue")
         return;
     }
 
