@@ -16,18 +16,19 @@ document.querySelector(".below-header-div").innerHTML =
 
 
 function currentItemCardTemplate({name, price, quantity, category, picture}) {
-        return `<article class="card product-card">
+        return `<article class="card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
                 <p><b>Price: </b>${price} QAR</p> <br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
+                <a class="popup-btn">Quick View</a>
         </article>`;
 }
     
 function soldItemCardTemplate({name, selectedQuantity, category, picture}) {
         const item = itemsRepo.searchItem(111)
-        return `<article class="card product-card">
+        return `<article class="card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
                 <p><b>Quantity: </b>${selectedQuantity}</p> <br>
@@ -36,8 +37,6 @@ function soldItemCardTemplate({name, selectedQuantity, category, picture}) {
                 <p><b>Selling Price: </b>${item.price} QAR</p><br>
         </article>`;
 }
-
-
 
 function displayCurrentUsersItems() {
         var i;
@@ -49,6 +48,7 @@ function displayCurrentUsersItems() {
         document.querySelector("#currently-selling-items > .items-list").innerHTML = 
                 loggedInUser.listOfCurrentItems
                         .map(item => currentItemCardTemplate(item)).join(" ")
+
 
 }
 
@@ -80,3 +80,5 @@ async function displayUsersSaleHistory() {
                         .map(item => soldItemCardTemplate(item)).join(" "); 
 
 }
+
+
