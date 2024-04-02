@@ -21,26 +21,8 @@ function orderNow(){
     });
     //calculating payment the buyer has to PAY
     let Payment = loggedInUser.cart.reduce((acc, item) => acc + (item.price * item.selectedQuantity), 0) + 20
-//    extractedCart.array.forEach(element => {
-//     console.log(element.sellerId);
-//    });
-   extractedCart.map(item => {
-    sellers.push(item.sellerId)
-   });
-   let items = localStorage.itemList
-   let foundItems =""
-   //let itemList = JSON.parse(localStorage.itemList)
-   extractedCart.map(item => {
-    
-    console.log(items);
-    foundItems= items.find(i =>i.id == item.id )
-    foundItems.quantity-= item.selectedQuantity;
-
-});
-   //localStorage.itemList = JSON.stringify(localStorage.itemList);
+   
     let users = JSON.parse(localStorage.users)
-
-    localStorage.itemList = JSON.stringify(items)
     
     const foundUser = users.find(user=>user.username==2);
     const foundLoggedInUser = users.find(user => user.username==loggedInUser.username)
