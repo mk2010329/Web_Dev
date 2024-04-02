@@ -15,14 +15,15 @@ document.querySelector(".below-header-div").innerHTML =
                 `<h1>Hi ${loggedInUser.name}&#x1F44B;</h1>`
 
 
-function currentItemCardTemplate({name, price, quantity, category, picture}) {
+function currentItemCardTemplate(item) {
         return `<article class="card">
-                <img src="${picture}" alt="Item"><br>
-                <p><b>Name: </b>${name}</p><br>
-                <p><b>Price: </b>${price} QAR</p> <br>
-                <p><b>Quantity: </b>${quantity}</p> <br>
-                <p><b>category: </b>${category}</p><br>
-                <a class="popup-btn">Quick View</a>
+                <p hidden id="${item.id}"></p>
+                <img src="${item.picture}" alt="Item"><br>
+                <p><b>Name: </b>${item.name}</p><br>
+                <p><b>Price: </b>${item.price} QAR</p> <br>
+                <p><b>Quantity: </b>${item.quantity}</p> <br>
+                <p><b>category: </b>${item.category}</p><br>
+                <a class="popup-btn">Update</a>
         </article>`;
 }
     
@@ -48,6 +49,40 @@ function displayCurrentUsersItems() {
         document.querySelector("#currently-selling-items > .items-list").innerHTML = 
                 loggedInUser.listOfCurrentItems
                         .map(item => currentItemCardTemplate(item)).join(" ")
+        
+        document.querySelectorAll(".popup-btn").forEach(c => c.addEventListener("click", (event) => {
+                const itemId = event.target.parentElement.querySelector("*").id
+                
+                const item = itemsRepo.searchItem(itemId)
+
+                const dialog = document.getElementById("item-popup-dialog");
+                document.getElementById("dialog-content").innerHTML = 
+                        `<h1 style="color:grey">Update Quantity for: <p style="color:black">${item.name}</p></h1>`
+                document.querySelector("dialog form").innerHTML = 
+                        `<label for="quantity">Quantity: </label>
+                        <input type="number" name="quantity" id="quantity" placeholder="Enter Quantity Here">
+                        <label for="price">Price: </label>
+                        <input type="number" name="price" id="price" placeholder="Enter Price Here">
+                        <button>Close</button>
+                        <button type="submit" id="update-submit-button">Submit</button>`
+                document.getElementById('quantity').value=item.quantity;
+                document.getElementById('price').value=item.price;
+
+                dialog.showModal();
+                console.log("done");
+                document.getElementById("update-submit-button").addEventListener("click", () => {
+
+                        const form = document.getElementById("update-item-form")
+                        const formData = new FormData(form);
+                        item.price = formData.get("price")
+                        item.quantity = formData.get("quantity")
+                        
+                        itemsRepo.updateItem(item)
+                        window.location.reload()
+                })
+        }))
+
+        
 
 
 }
