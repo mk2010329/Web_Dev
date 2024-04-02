@@ -50,11 +50,7 @@ reader.addEventListener("load", async () => {
         document.getElementById("Upload").reset();
         });
     
-    
 
-    
-
-  
     
   });
   
