@@ -24,7 +24,7 @@ document.getElementById("Upload").addEventListener("submit", async function(even
         return;
     }
 
-    let loggedInUser = localStorage.loggedInUser;
+    let loggedInUser = JSON.parse(localStorage.loggedInUser);
 
     if (!loggedInUser) {
         // showMessage("Please log in to upload items.");
@@ -36,25 +36,17 @@ document.getElementById("Upload").addEventListener("submit", async function(even
     const reader = new FileReader();
     reader.readAsDataURL(picture);
 
-    let sellerId = loggedInUser.id;
+    let sellerId = loggedInUser.username;
 
 reader.addEventListener("load", async () => {
         // convert image file to base64 string
         newItem = new Item(sellerId, itemName, price, "", quantity, reader.result, category);
-        console.log(newItem);
-        console.log(newItem.picture);
         
         let result = await itemsRepo.uploadItem(newItem);
         let result1 = await UsersRepo.uploadItemRpo(newItem);
         showMessage(result1);
         document.getElementById("Upload").reset();
         });
-    
-    
-
-    
-
-  
     
   });
   

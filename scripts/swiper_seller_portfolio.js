@@ -22,7 +22,7 @@ function currentItemCardTemplate({name, price, quantity, category, picture}) {
                 <p><b>Price: </b>${price} QAR</p> <br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
-                <a class="popup-btn">Quick View</a>
+                <a class="popup-btn">Update</a>
         </article>`;
 }
     
