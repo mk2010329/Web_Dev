@@ -30,3 +30,13 @@ export function storeItem(){
 export function purchaseItem(item){
     
 }
+
+export function updateItem(item) {
+    items.splice(items.findIndex(i => i.id == item.id), 1, item)
+    localStorage.itemList = JSON.stringify(items)
+
+    const loggedInUser = JSON.parse(localStorage.loggedInUser)
+    loggedInUser.listOfCurrentItems
+        .splice(loggedInUser.listOfCurrentItems.findIndex(i => i.id == item.id), 1, item)
+    localStorage.loggedInUser = JSON.stringify(loggedInUser)
+}
