@@ -16,12 +16,13 @@ document.querySelector(".below-header-div").innerHTML =
 
 
 function currentItemCardTemplate({name, price, quantity, category, picture}) {
-        return `<article class="card product-card">
+        return `<article class="card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
                 <p><b>Price: </b>${price}</p> <br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
+                <a class="popup-btn">Quick View</a>
         </article>`;
 }
     
@@ -29,17 +30,16 @@ function currentItemCardTemplate({name, price, quantity, category, picture}) {
 
 function soldItemCardTemplate({name, quantity, category, picture}) {
         const item = itemsRepo.searchItem(111)
-        return `<article class="card product-card">
+        return `<article class="card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
                 <p><b>Bought by User: </b>${item.boughtByUser}</p><br>
                 <p><b>Selling Price: </b>${item.price}</p><br>
+                <a class="popup-btn">Quick View</a>
         </article>`;
 }
-
-
 
 function displayCurrentUsersItems() {
         var i;
@@ -51,6 +51,7 @@ function displayCurrentUsersItems() {
         document.querySelector("#currently-selling-items > .items-list").innerHTML = 
                 loggedInUser.listOfCurrentItems
                         .map(item => currentItemCardTemplate(item)).join(" ")
+
 
 }
 
@@ -82,3 +83,5 @@ async function displayUsersSaleHistory() {
                         .map(item => soldItemCardTemplate(item)).join(" "); 
 
 }
+
+

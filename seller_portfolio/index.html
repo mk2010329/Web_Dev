@@ -21,13 +21,12 @@
     <div class="below-header-div"></div>
     <main>
       <div class="popup-sell-div">
-        <div>
+        <div class="popup-sell-div-text">
           <h2>Sell an Item</h2>
           <p>Sell an item by clicking the button</p>
         </div>
         <a href="/upload.html"
-          ><span class="material-symbols-outlined">payments</span>Sell</a
-        >
+          ><span class="material-symbols-outlined">payments</span>Sell</a>
       </div>
 
       <h1>Your Items</h1>
@@ -75,7 +74,17 @@
 
         <div class="items-list"></div>
       </section>
+
+      
+
     </main>
+    <div id="dialog-wrapper">
+      <dialog id="item-popup-dialog">
+        <div id="dialog-content"></div>
+        <form method="dialog"><button>Close</button></form>
+      </dialog>
+    </div>
+    
 
     <script type="module" src="/scripts/swiper_seller_portfolio.js"></script>
     <footer id="footer"></footer>
