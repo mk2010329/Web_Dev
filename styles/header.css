@@ -155,7 +155,7 @@ footer #icons-under{
     #downRow{
         display: block;
         text-align: center;
-        margin: 10px;
+        /* margin: 10px; */
     }
 
     footer #links{
