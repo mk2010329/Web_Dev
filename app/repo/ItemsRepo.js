@@ -4,7 +4,7 @@ export function uploadItem(newItem){
     let items = JSON.parse(localStorage.getItem("itemList"));
     items.push(newItem);
     localStorage.setItem("itemList", JSON.stringify(items));
-    return "Done" ;
+    return "Item add to items" ;
 }
 const items = JSON.parse(await getItems())
 export function searchItem(id) {
