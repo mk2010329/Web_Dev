@@ -1,24 +1,26 @@
 const confirmation = document.querySelector(".button_submit")
 
 
+let loggedInUser=""
+document.addEventListener('DOMContentLoaded', () => {
+     loggedInUser = JSON.parse(localStorage.loggedInUser)
+       document.getElementById('firstName').value=loggedInUser.name;
+    document.getElementById('lastName').value=loggedInUser.surname;
+     document.getElementById('address').value=loggedInUser.shippingAddress;
+})
+
+
 confirmation.addEventListener('click',orderNow)
 
-
-
 function orderNow(){
-
-    let loggedInUser = JSON.parse(localStorage.loggedInUser)
     let extractedCart = loggedInUser.cart
     let sellers = []
+    //adding the items to list of purchased items
      extractedCart.map(element => {
         loggedInUser.listOfPurchasedItems.push(element)    
     });
-
-    let cost = []
-    extractedCart.map(i =>cost.push(i.price) )
-    let totalCost = cost.reduce((acc,i) => acc+i)
-    let shipping = 20;   
-    let Payment =Number(totalCost)+Number(shipping)
+    //calculating payment the buyer has to PAY
+    let Payment = loggedInUser.cart.reduce((acc, item) => acc + (item.price * item.selectedQuantity), 0) + 20
 //    extractedCart.array.forEach(element => {
 //     console.log(element.sellerId);
 //    });
@@ -26,41 +28,43 @@ function orderNow(){
     sellers.push(item.sellerId)
    });
 
-    let users = JSON.parse(localStorage.users)
-    
-    const foundUser = users.find(user=>user.username==sellers);
-    const foundLoggedInUser = users.find(user => user.username==loggedInUser.username)
-    foundLoggedInUser.bankAccount.amount-=Payment
-    foundUser.bankAccount.amount+=Payment
-    extractedCart.map(element => {foundUser.listOfSoldItems.push(element)  });
+   //let itemList = JSON.parse(localStorage.itemList)
+   extractedCart.map(element => {
+    element.quantity-= element.selectedQuantity;
+    // localStorage.itemList = JSON.stringify(element);
 
+});
+
+    let users = JSON.parse(localStorage.users)
+
+    
+    
+    const foundUser = users.find(user=>user.username==2);
+    const foundLoggedInUser = users.find(user => user.username==loggedInUser.username)
+
+    //Deducting the payment amount from buyer's account 
+    foundLoggedInUser.bankAccount.amount-=Payment
+
+    //Adding the payment amount to seller's account
+    foundUser.bankAccount.amount+=Payment
+   // above is done so that bank information persists
+
+    //Adding the items bought by the buyer in the list of sold items for seller
+    extractedCart.map(element => {foundUser.listOfSoldItems.push(element)});
+
+    //Adding the items bought by the buyer in the list of sold items for seller
     extractedCart.map(item => {foundLoggedInUser.listOfPurchasedItems.push(item)})
 
-
-    // const index = users.findIndex(i=> i.listOfCurrentItems.id==extractedCart.id)
-    // console.log(index);
-    
-    // extractedCart.map(index =>{
-    //     index.findIndex(i=> i.listOfCurrentItems.id==extractedCart.id)
-    //     users.listOfCurrentItems.splice(index,1);} )
-    
-
-    // for(let i =0 ;i<users.length;i++){
-    //     for (let j=0; j<users.length+1;j++){
-    //         if(users.include(sellers[i])){
-    //             console.log(users[j].username);
-    //             console.log("found it");
-    //         }else{
-    //             console.log(users[j].username);
-    //         }
-    //     }
-    // }    
-
+   //Deducting the payment amount from logged in buyer's account
    loggedInUser.bankAccount.amount-=Payment
+
+   //removing items from the cart
    let emtpyArray = []
    loggedInUser.cart = emtpyArray
-  localStorage.loggedInUser = JSON.stringify(loggedInUser)
-  localStorage.users = JSON.stringify(users)
-  window.alert("Transaction successful")
 
+   //saving the data
+   localStorage.loggedInUser = JSON.stringify(loggedInUser)
+   localStorage.users = JSON.stringify(users)
+   window.alert("Transaction successful")
+   window.location.href = "../seller_portfolio/index.html";
 }

@@ -19,23 +19,21 @@ function currentItemCardTemplate({name, price, quantity, category, picture}) {
         return `<article class="card product-card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
-                <p><b>Price: </b>${price}</p> <br>
+                <p><b>Price: </b>${price} QAR</p> <br>
                 <p><b>Quantity: </b>${quantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
         </article>`;
 }
     
-
-
-function soldItemCardTemplate({name, quantity, category, picture}) {
+function soldItemCardTemplate({name, selectedQuantity, category, picture}) {
         const item = itemsRepo.searchItem(111)
         return `<article class="card product-card">
                 <img src="${picture}" alt="Item"><br>
                 <p><b>Name: </b>${name}</p><br>
-                <p><b>Quantity: </b>${quantity}</p> <br>
+                <p><b>Quantity: </b>${selectedQuantity}</p> <br>
                 <p><b>category: </b>${category}</p><br>
                 <p><b>Bought by User: </b>${item.boughtByUser}</p><br>
-                <p><b>Selling Price: </b>${item.price}</p><br>
+                <p><b>Selling Price: </b>${item.price} QAR</p><br>
         </article>`;
 }
 
@@ -63,7 +61,7 @@ function displayPurchaseHistory() {
         document.getElementById("purchase-history").style.display = "block";
         document.querySelector("#purchase-history > .items-list").innerHTML = 
                 loggedInUser.listOfPurchasedItems
-                        .map(item => currentItemCardTemplate(item)).join(" ")
+                        .map(item => soldItemCardTemplate(item)).join(" ")
 
 }
 

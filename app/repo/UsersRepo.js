@@ -39,7 +39,6 @@ export async function getLoggedInUser() {
 export async function uploadItemRpo(newItem){
     let loggedInUser =await getLoggedInUser();
    let users = JSON.parse(localStorage.users)
-    console.log(users);
     if (!loggedInUser) {
         alert("No user logged in.");
         return;
@@ -53,7 +52,7 @@ export async function uploadItemRpo(newItem){
     loggedInUser.listOfCurrentItems.push(newItem);
     const  foundUsers = users.find(user=>user.username==loggedInUser.username);
     foundUsers.listOfCurrentItems.push(newItem)
-    console.log(loggedInUser.listOfCurrentItems);
+
     localStorage.users = JSON.stringify(users);
     localStorage.loggedInUser =JSON.stringify(loggedInUser)
     alert("Item uploaded successfully.");
